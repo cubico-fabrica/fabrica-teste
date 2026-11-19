@@ -16,6 +16,9 @@ class TestIniciais(unittest.TestCase):
     def test_espacos_extra_a_volta_e_entre_palavras(self):
         self.assertEqual(iniciais("  Ana   Silva  "), "A. S.")
 
+    def test_espacos_dois_no_inicio_tres_no_meio_um_no_fim(self):
+        self.assertEqual(iniciais("  Ana   Silva "), "A. S.")
+
     def test_tab_entre_palavras(self):
         self.assertEqual(iniciais("Ana\tSilva"), "A. S.")
 
