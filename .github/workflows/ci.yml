@@ -1,0 +1,20 @@
+# .github/workflows/ci.yml — modelo 26: os testes correm em cada PR para o main.
+name: ci
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read            # a CI só lê o código; não escreve no repositório
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: testes
+        run: python3 -m unittest
