@@ -22,8 +22,11 @@ class TestIniciais(unittest.TestCase):
     def test_tab_entre_palavras(self):
         self.assertEqual(iniciais("Ana\tSilva"), "A. S.")
 
-    def test_minusculas_preservadas(self):
-        self.assertEqual(iniciais("ana silva"), "a. s.")
+    def test_minusculas_passam_a_maiusculas(self):
+        self.assertEqual(iniciais("ana silva"), "A. S.")
+
+    def test_maiusculas_e_minusculas_misturadas(self):
+        self.assertEqual(iniciais("aNA sILVA"), "A. S.")
 
     def test_nome_vazio(self):
         self.assertEqual(iniciais(""), "")
@@ -33,6 +36,10 @@ class TestIniciais(unittest.TestCase):
 
     def test_acentos_preservados(self):
         self.assertEqual(iniciais("Élio Ândrade"), "É. Â.")
+
+    def test_acentos_minusculos_passam_a_maiusculas(self):
+        self.assertEqual(iniciais("élio"), "É.")
+        self.assertEqual(iniciais("élio ândrade"), "É. Â.")
 
 
 if __name__ == "__main__":
