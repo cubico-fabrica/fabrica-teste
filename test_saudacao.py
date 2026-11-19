@@ -48,6 +48,9 @@ class TestSaudacao(unittest.TestCase):
     def test_espacos_entre_palavras_preservados(self):
         self.assertEqual(saudacao("ana  silva"), "Olá, Ana  Silva!")
 
+    def test_tab_separa_palavras(self):
+        self.assertEqual(saudacao("ana\tsilva"), "Olá, Ana\tSilva!")
+
     def test_palavra_comeca_por_nao_letra(self):
         self.assertEqual(saudacao("3ana"), "Olá, 3ana!")
 
